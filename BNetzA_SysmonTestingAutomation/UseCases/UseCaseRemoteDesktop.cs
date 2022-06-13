@@ -8,5 +8,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 {
     internal class UseCaseRemoteDesktop
     {
+        public UseCaseRemoteDesktop() {   }
+
+        public void Run()
+        {
+            Console.WriteLine("DEBUG RemoteDesktop");
+        }
     }
 }

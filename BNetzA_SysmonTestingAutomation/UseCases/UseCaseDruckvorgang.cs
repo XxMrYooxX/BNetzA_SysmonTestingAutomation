@@ -8,5 +8,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 {
     internal class UseCaseDruckvorgang
     {
+        public UseCaseDruckvorgang() { }
+
+        public void Run()
+        {
+            Console.WriteLine("DEBUG Druckvorgang");
+        }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FlaUI.UIA2;
+﻿using BNetzA_SysmonTestingAutomation.View;
 
 namespace BNetzA_SysmonTestingAutomation
 {
@@ -11,6 +6,8 @@ namespace BNetzA_SysmonTestingAutomation
     {
         static void Main(string[] args)
         {
+            Menu menu = Menu.getInstance();
+            menu.Run();
         }
     }
 }

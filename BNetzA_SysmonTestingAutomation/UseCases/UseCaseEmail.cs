@@ -8,5 +8,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 {
     internal class UseCaseEmail
     {
+        public UseCaseEmail() { }
+
+        public void Run()
+        {
+            Console.WriteLine("DEBUG Email");
+        }
     }
 }

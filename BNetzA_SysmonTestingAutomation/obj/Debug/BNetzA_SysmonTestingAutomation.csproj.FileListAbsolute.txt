@@ -1,0 +1,16 @@
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\BNetzA_SysmonTestingAutomation.exe.config
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\BNetzA_SysmonTestingAutomation.exe
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\BNetzA_SysmonTestingAutomation.pdb
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.Core.dll
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.UIA2.dll
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.UIA3.dll
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\Interop.UIAutomationClient.dll
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.Core.xml
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.UIA2.xml
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\Debug\FlaUI.UIA3.xml
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.csproj.AssemblyReference.cache
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.csproj.SuggestedBindingRedirects.cache
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.csproj.CoreCompileInputs.cache
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.csproj.CopyComplete
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.exe
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\Debug\BNetzA_SysmonTestingAutomation.pdb

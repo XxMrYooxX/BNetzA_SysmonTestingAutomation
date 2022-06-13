@@ -8,5 +8,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 {
     internal class UseCaseDateierstellung
     {
+        public UseCaseDateierstellung() { }
+
+        public void Run()
+        {
+            Console.WriteLine("DEBUG DATEIERSTELLUNG");
+        }
     }
 }
