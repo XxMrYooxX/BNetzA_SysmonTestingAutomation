@@ -1,4 +1,9 @@
-﻿using System;
+﻿using FlaUI.Core.Tools;
+using FlaUI.UIA3;
+using Microsoft.Win32;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
@@ -56,7 +61,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
             Thread.Sleep(2000);
             _mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("1001")).Click();
-            FlaUI.Core.Input.Keyboard.Type(GetRandomDocumentName());
+            //FlaUI.Core.Input.Keyboard.Type(GetRandomDocumentName());
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
         }
 

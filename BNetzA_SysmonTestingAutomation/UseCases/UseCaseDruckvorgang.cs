@@ -14,7 +14,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
         private FlaUI.Core.Application _theApp;
         private UIA3Automation _automation;
         private FlaUI.Core.AutomationElements.Window _mainWindow;
-        private const int BigWaitTimeout = 3000;
+        private const int BigWaitTimeout = 30000;
         private const int SmallWaitTimeout = 1000;
 
         public void Setup()
@@ -28,6 +28,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             pathToWord = pathToWord.Replace(" /Automation", "");
             _theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(pathToWord));
             _automation = new UIA3Automation();
+            Thread.Sleep(3000);
             _mainWindow = _theApp.GetMainWindow(_automation);
         }
 
@@ -51,16 +52,15 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
                     cf.ByAutomationId("AIOStartDocument").And(cf.ByName("Leeres Dokument"))));
 
             newDocumentCreateButton.Click();
-
-            //window.FindFirstDescendant(cf.ByAutomationId("TabOfficeStart").And(cf.ByName("Neu"))).Click();
-            //Thread.Sleep(2000);
-            //window.FindFirstDescendant(cf.ByAutomationId("AIOStartDocument").And(cf.ByName("Leeres Dokument"))).Click();
-            //Thread.Sleep(2000);
             FlaUI.Core.Input.Keyboard.TypeSimultaneously(FlaUI.Core.WindowsAPI.VirtualKeyShort.CONTROL, FlaUI.Core.WindowsAPI.VirtualKeyShort.KEY_P);
             Thread.Sleep(2000);
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
             Thread.Sleep(2000);
-            _mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("1001")).Click();
+            var newDocumentNameButton = WaitForElement(() =>
+                _mainWindow.FindFirstDescendant(cf =>
+                    cf.ByAutomationId("1001")));
+
+            newDocumentNameButton.Click();
             FlaUI.Core.Input.Keyboard.Type(GetRandomDocumentName());
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
         }

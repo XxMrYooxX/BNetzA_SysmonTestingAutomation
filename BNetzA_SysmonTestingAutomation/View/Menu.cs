@@ -33,21 +33,29 @@ namespace BNetzA_SysmonTestingAutomation.View
                     Console.WriteLine("\n\n Use Case " + menuItems[0].DESCRIPTION + "gewählt. ID: " + menuItems[0].ID);
                     var usecase0 = gateway.createUseCaseDateierstellung();
                     usecase0.Setup();
+                    usecase0.Foo();
+                    usecase0.Teardown();
                     break;
                 case 1:
                     Console.WriteLine("\n\n Use Case " + menuItems[1].DESCRIPTION + "gewählt. ID: " + menuItems[1].ID);
                     var usecase1 = gateway.createUseCaseDruckvorgang();
-                    usecase1.Run();
+                    usecase1.Setup();
+                    usecase1.Foo();
+                    usecase1.Teardown();
                     break;
                 case 2:
                     Console.WriteLine("\n\n Use Case " + menuItems[2].DESCRIPTION + "gewählt. ID: " + menuItems[2].ID);
                     var usecase2 = gateway.createUseCaseEmail();
-                    usecase2.Run();
+                    usecase2.Setup();
+                    usecase2.Foo();
+                    usecase2.Teardown();
                     break;
                 case 3:
                     Console.WriteLine("\n\n Use Case " + menuItems[3].DESCRIPTION + "gewählt. ID: " + menuItems[3].ID);
                     var usecase3 = gateway.createUseCaseRemoteDesktop();
-                    usecase3.Run();
+                    usecase3.Setup();
+                    usecase3.Foo();
+                    usecase3.Teardown();
                     break;
                 default:
                     break;
