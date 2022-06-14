@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BNetzA_SysmonTestingAutomation.UseCases;
+﻿using BNetzA_SysmonTestingAutomation.UseCases;
 
 namespace BNetzA_SysmonTestingAutomation.Gateways
 {
@@ -29,7 +24,7 @@ namespace BNetzA_SysmonTestingAutomation.Gateways
             return new UseCaseEmail();
         }
 
-        public UseCaseRemoteDesktop createRemoteDesktop()
+        public UseCaseRemoteDesktop createUseCaseRemoteDesktop()
         {
             return new UseCaseRemoteDesktop();
         }

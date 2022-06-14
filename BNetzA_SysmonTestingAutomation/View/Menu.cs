@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BNetzA_SysmonTestingAutomation.Gateways;
+﻿using BNetzA_SysmonTestingAutomation.Gateways;
+using System;
 
 namespace BNetzA_SysmonTestingAutomation.View
 {
     internal class Menu
     {
         private static Menu instance;
-        private static int menuLow = 0;
-        private static int menuHigh = 3;
-        private MenuItems[] menuItems;
-        private Menu() {
+        private readonly MenuItems[] menuItems;
+        private Menu()
+        {
             menuItems = new MenuItems[4];
             menuItems[0] = new MenuItems(0, "Dateierstellung");
             menuItems[1] = new MenuItems(1, "Druckvorgang");
@@ -37,7 +32,7 @@ namespace BNetzA_SysmonTestingAutomation.View
                 case 0:
                     Console.WriteLine("\n\n Use Case " + menuItems[0].DESCRIPTION + "gewählt. ID: " + menuItems[0].ID);
                     var usecase0 = gateway.createUseCaseDateierstellung();
-                    usecase0.Run();
+                    usecase0.Setup();
                     break;
                 case 1:
                     Console.WriteLine("\n\n Use Case " + menuItems[1].DESCRIPTION + "gewählt. ID: " + menuItems[1].ID);
@@ -51,7 +46,7 @@ namespace BNetzA_SysmonTestingAutomation.View
                     break;
                 case 3:
                     Console.WriteLine("\n\n Use Case " + menuItems[3].DESCRIPTION + "gewählt. ID: " + menuItems[3].ID);
-                    var usecase3 = gateway.createRemoteDesktop();
+                    var usecase3 = gateway.createUseCaseRemoteDesktop();
                     usecase3.Run();
                     break;
                 default:
@@ -72,7 +67,7 @@ namespace BNetzA_SysmonTestingAutomation.View
             Console.WriteLine();
             Console.Write("Eingabe: ");
             int choice = int.Parse(Console.ReadLine());
-            if (choice > menuHigh || choice < menuLow)
+            if (choice > menuItems.Length || choice < 0)
             {
                 Console.WriteLine("Fehlerhafte Eingabe!");
                 PrintMenu();
