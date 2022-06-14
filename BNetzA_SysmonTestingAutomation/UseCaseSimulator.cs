@@ -1,4 +1,5 @@
 ﻿using BNetzA_SysmonTestingAutomation.View;
+using System;
 
 namespace BNetzA_SysmonTestingAutomation
 {
@@ -6,8 +7,16 @@ namespace BNetzA_SysmonTestingAutomation
     {
         static void Main(string[] args)
         {
-            Menu menu = Menu.getInstance();
-            menu.Run();
+            try
+            {
+                Menu menu = Menu.getInstance();
+                menu.Run();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            
         }
     }
 }
