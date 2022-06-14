@@ -6,32 +6,32 @@ using System.Threading;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
-    internal class UseCaseRemoteDesktop
+    internal class UseCaseRemoteDesktop : UseCase
     {
         public UseCaseRemoteDesktop() { }
 
-        private FlaUI.Core.Application _theApp;
+        private FlaUI.Core.Application _app;
         private UIA3Automation _automation;
         private FlaUI.Core.AutomationElements.Window _mainWindow;
-        private const int BigWaitTimeout = 30000;
+        private const int WaitTimeout = 30000;
 
-        public void Setup()
+        public override void Setup()
         {
             // 64 Bit Problem MSTSC.exe -> https://stackoverflow.com/questions/3101392/starting-remote-desktop-client-no-control-over-pid-kill-pid-changes-after-star
             Console.WriteLine("UseCase wird initiiert. Der PC wird im Anschluss heruntergefahren!");
-            _theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(@"C:\Windows\System32\mstsc.exe"));
+            _app = FlaUI.Core.Application.Launch(new ProcessStartInfo(@"C:\Windows\System32\mstsc.exe"));
             Thread.Sleep(4000);
             _automation = new UIA3Automation();
-            _mainWindow = _theApp.GetMainWindow(_automation);
+            _mainWindow = _app.GetMainWindow(_automation);
         }
 
-        public void Teardown()
+        public override void Teardown()
         {
             _automation?.Dispose();
-            _theApp?.Close();
+            _app?.Close();
         }
 
-        public void Foo()
+        public override void Foo()
         {
             var newDocumentButton = WaitForElement(() =>
                 _mainWindow.FindFirstDescendant(cf =>
@@ -45,11 +45,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 
         }
 
-        private T WaitForElement<T>(Func<T> getter)
+        public override T WaitForElement<T>(Func<T> getter)
         {
             var retry = Retry.WhileNull<T>(
                 () => getter(),
-                TimeSpan.FromMilliseconds(BigWaitTimeout));
+                TimeSpan.FromMilliseconds(WaitTimeout));
 
             if (!retry.Success)
             {

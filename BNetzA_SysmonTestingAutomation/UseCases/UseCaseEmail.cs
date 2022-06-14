@@ -9,34 +9,34 @@ using System.Threading;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
-    internal class UseCaseEmail
+    internal class UseCaseEmail : UseCase
     {
         public UseCaseEmail() { }
 
-        private FlaUI.Core.Application _theApp;
+        private FlaUI.Core.Application _app;
         private UIA3Automation _automation;
         private Window _mainWindow;
-        private const int BigWaitTimeout = 3000;
+        private const int WaitTimeout = 3000;
 
-        public void Setup()
+        public override void Setup()
         {
             Console.WriteLine("UseCase wird initiiert. Der PC wird im Anschluss heruntergefahren!");
             RegistryKey outlookPath = Registry.LocalMachine.OpenSubKey(
                 "SOFTWARE\\Microsoft\\Office\\16.0\\Outlook\\InstallRoot");
             string pathToOutlookExe = (string)outlookPath.GetValue("Path") + "OUTLOOK.EXE";
-            _theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(@pathToOutlookExe));
+            _app = FlaUI.Core.Application.Launch(new ProcessStartInfo(@pathToOutlookExe));
             _automation = new UIA3Automation();
-            _mainWindow = _theApp.GetMainWindow(_automation);
+            _mainWindow = _app.GetMainWindow(_automation);
             Thread.Sleep(5000);
         }
 
-        public void Teardown()
+        public override void Teardown()
         {
             _automation?.Dispose();
-            _theApp?.Close();
+            _app?.Close();
         }
 
-        public void Foo()
+        public override void Foo()
         {
             FlaUI.Core.Input.Keyboard.TypeSimultaneously(
                 FlaUI.Core.WindowsAPI.VirtualKeyShort.CONTROL,
@@ -48,7 +48,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             //Change Window  
             using (_automation)
             {
-                var emailWindows = _theApp.GetAllTopLevelWindows(_automation).ToList();
+                var emailWindows = _app.GetAllTopLevelWindows(_automation).ToList();
                 var emailWindow = emailWindows[0];
 
                 WaitForElement(() =>
@@ -76,11 +76,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             Thread.Sleep(10000);
         }
 
-        private T WaitForElement<T>(Func<T> getter)
+        public override T WaitForElement<T>(Func<T> getter)
         {
             var retry = Retry.WhileNull<T>(
                 () => getter(),
-                TimeSpan.FromMilliseconds(BigWaitTimeout));
+                TimeSpan.FromMilliseconds(WaitTimeout));
 
             if (!retry.Success)
             {

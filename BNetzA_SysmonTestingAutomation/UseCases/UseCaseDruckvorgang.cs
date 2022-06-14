@@ -7,16 +7,16 @@ using System.Threading;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
-    internal class UseCaseDruckvorgang
+    internal class UseCaseDruckvorgang : UseCase
     {
         public UseCaseDruckvorgang() { }
 
-        private FlaUI.Core.Application _theApp;
+        private FlaUI.Core.Application _app;
         private UIA3Automation _automation;
         private FlaUI.Core.AutomationElements.Window _mainWindow;
-        private const int BigWaitTimeout = 30000;
+        private const int WaitTimeout = 30000;
 
-        public void Setup()
+        public override void Setup()
         {
             Console.WriteLine("UseCase wird initiiert. Der PC wird im Anschluss heruntergefahren!");
             RegistryKey registryKeyCLSID = Registry.ClassesRoot.OpenSubKey("Word.Application\\CLSID");
@@ -25,19 +25,19 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             string pathToWord = (string)registryKey.GetValue("");
             pathToWord = pathToWord.Replace("\"", "");
             pathToWord = pathToWord.Replace(" /Automation", "");
-            _theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(pathToWord));
+            _app = FlaUI.Core.Application.Launch(new ProcessStartInfo(pathToWord));
             _automation = new UIA3Automation();
             Thread.Sleep(3000);
-            _mainWindow = _theApp.GetMainWindow(_automation);
+            _mainWindow = _app.GetMainWindow(_automation);
         }
 
-        public void Teardown()
+        public override void Teardown()
         {
             _automation?.Dispose();
-            _theApp?.Close();
+            _app?.Close();
         }
 
-        public void Foo()
+        public override void Foo()
         {
             // This will wait for the child element or timeout 
             var newDocumentButton = WaitForElement(() =>
@@ -65,11 +65,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
         }
 
-        private T WaitForElement<T>(Func<T> getter)
+        public override T WaitForElement<T>(Func<T> getter)
         {
             var retry = Retry.WhileNull<T>(
                 () => getter(),
-                TimeSpan.FromMilliseconds(BigWaitTimeout));
+                TimeSpan.FromMilliseconds(WaitTimeout));
 
             if (!retry.Success)
             {

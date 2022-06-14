@@ -9,16 +9,16 @@ using System.Text;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
-    internal class UseCaseDateierstellung
+    internal class UseCaseDateierstellung : UseCase
     {
         public UseCaseDateierstellung() { }
 
-        private FlaUI.Core.Application _theApp;
+        private FlaUI.Core.Application _app;
         private UIA3Automation _automation;
         private Window _mainWindow;
-        private const int BigWaitTimeout = 3000;
+        private const int WaitTimeout = 3000;
 
-        public void Setup()
+        public override void Setup()
         {
             Console.WriteLine("UseCase wird initiiert. Der PC wird im Anschluss heruntergefahren!");
             //_theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(@"C:\Windows\explorer.exe"));
@@ -26,13 +26,13 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             //_mainWindow = _theApp.GetMainWindow(_automation);
         }
 
-        public void Teardown()
+        public override void Teardown()
         {
             //_automation?.Dispose();
             //_theApp?.Close();
         }
 
-        public void Foo()
+        public override void Foo()
         {
             //WaitForElement(() =>
             //        _mainWindow.FindFirstDescendant(cf =>
@@ -58,11 +58,11 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
             }
         }
 
-        private T WaitForElement<T>(Func<T> getter)
+        public override T WaitForElement<T>(Func<T> getter)
         {
             var retry = FlaUI.Core.Tools.Retry.WhileNull<T>(
                 () => getter(),
-                TimeSpan.FromMilliseconds(BigWaitTimeout));
+                TimeSpan.FromMilliseconds(WaitTimeout));
 
             if (!retry.Success)
             {
