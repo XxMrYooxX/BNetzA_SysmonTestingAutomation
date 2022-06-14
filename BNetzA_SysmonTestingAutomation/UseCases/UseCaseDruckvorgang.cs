@@ -15,7 +15,6 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
         private UIA3Automation _automation;
         private FlaUI.Core.AutomationElements.Window _mainWindow;
         private const int BigWaitTimeout = 30000;
-        private const int SmallWaitTimeout = 1000;
 
         public void Setup()
         {
@@ -52,6 +51,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
                     cf.ByAutomationId("AIOStartDocument").And(cf.ByName("Leeres Dokument"))));
 
             newDocumentCreateButton.Click();
+
             FlaUI.Core.Input.Keyboard.TypeSimultaneously(FlaUI.Core.WindowsAPI.VirtualKeyShort.CONTROL, FlaUI.Core.WindowsAPI.VirtualKeyShort.KEY_P);
             Thread.Sleep(2000);
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);

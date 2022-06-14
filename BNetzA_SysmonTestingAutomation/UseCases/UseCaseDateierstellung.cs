@@ -1,9 +1,11 @@
-﻿using FlaUI.Core.Tools;
-using FlaUI.UIA3;
-using Microsoft.Win32;
+﻿using FlaUI.UIA3;
 using System;
 using System.Diagnostics;
-using System.Threading;
+using FlaUI.Core.WindowsAPI;
+using FlaUI.Core.Input;
+using FlaUI.Core.AutomationElements;
+using System.IO;
+using System.Text;
 
 namespace BNetzA_SysmonTestingAutomation.UseCases
 {
@@ -13,61 +15,52 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
 
         private FlaUI.Core.Application _theApp;
         private UIA3Automation _automation;
-        private FlaUI.Core.AutomationElements.Window _mainWindow;
+        private Window _mainWindow;
         private const int BigWaitTimeout = 3000;
-        private const int SmallWaitTimeout = 1000;
 
         public void Setup()
         {
             Console.WriteLine("UseCase wird initiiert. Der PC wird im Anschluss heruntergefahren!");
-            RegistryKey registryKeyCLSID = Registry.ClassesRoot.OpenSubKey("Word.Application\\CLSID");
-            string keyValueCLSID = (string)registryKeyCLSID.GetValue("");
-            RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey("WOW6432Node\\CLSID\\" + keyValueCLSID + "\\Localserver32");
-            string pathToWord = (string)registryKey.GetValue("");
-            pathToWord = pathToWord.Replace("\"", "");
-            pathToWord = pathToWord.Replace(" /Automation", "");
-            _theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(pathToWord));
-            _automation = new UIA3Automation();
-            _mainWindow = _theApp.GetMainWindow(_automation);
+            //_theApp = FlaUI.Core.Application.Launch(new ProcessStartInfo(@"C:\Windows\explorer.exe"));
+            //_automation = new UIA3Automation();
+            //_mainWindow = _theApp.GetMainWindow(_automation);
         }
 
         public void Teardown()
         {
-            _automation?.Dispose();
-            _theApp?.Close();
+            //_automation?.Dispose();
+            //_theApp?.Close();
         }
 
         public void Foo()
         {
-            // This will wait for the child element or timeout 
-            var newDocumentButton = WaitForElement(() =>
-                _mainWindow.FindFirstDescendant(cf =>
-                    cf.ByAutomationId("TabOfficeStart").And(cf.ByName("Neu"))));
+            //WaitForElement(() =>
+            //        _mainWindow.FindFirstDescendant(cf =>
+            //            cf.ByAutomationId("41477"))).Click();
+            //Keyboard.Type("%appdata%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
+            //Keyboard.Type(VirtualKeyShort.ENTER);
 
-            newDocumentButton.Click();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Test.bat";
 
-            var newDocumentCreateButton = WaitForElement(() =>
-                _mainWindow.FindFirstDescendant(cf =>
-                    cf.ByAutomationId("AIOStartDocument").And(cf.ByName("Leeres Dokument"))));
+            try
+            {
+                using (FileStream fs = File.Create(@path))
+                {
+                    byte[] info = new UTF8Encoding(true).GetBytes("Beispielhafter Eintrag.");
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+            }
 
-            newDocumentCreateButton.Click();
-
-            //window.FindFirstDescendant(cf.ByAutomationId("TabOfficeStart").And(cf.ByName("Neu"))).Click();
-            //Thread.Sleep(2000);
-            //window.FindFirstDescendant(cf.ByAutomationId("AIOStartDocument").And(cf.ByName("Leeres Dokument"))).Click();
-            //Thread.Sleep(2000);
-            FlaUI.Core.Input.Keyboard.TypeSimultaneously(FlaUI.Core.WindowsAPI.VirtualKeyShort.CONTROL, FlaUI.Core.WindowsAPI.VirtualKeyShort.KEY_P);
-            Thread.Sleep(2000);
-            FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
-            Thread.Sleep(2000);
-            _mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("1001")).Click();
-            //FlaUI.Core.Input.Keyboard.Type(GetRandomDocumentName());
-            FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private T WaitForElement<T>(Func<T> getter)
         {
-            var retry = Retry.WhileNull<T>(
+            var retry = FlaUI.Core.Tools.Retry.WhileNull<T>(
                 () => getter(),
                 TimeSpan.FromMilliseconds(BigWaitTimeout));
 

@@ -14,7 +14,6 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
         private UIA3Automation _automation;
         private FlaUI.Core.AutomationElements.Window _mainWindow;
         private const int BigWaitTimeout = 30000;
-        private const int SmallWaitTimeout = 1000;
 
         public void Setup()
         {
