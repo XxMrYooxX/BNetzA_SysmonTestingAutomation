@@ -3,10 +3,23 @@ using System;
 
 namespace BNetzA_SysmonTestingAutomation.View
 {
+    /// <summary>
+    /// Menu-Klasse als Benutzerinterface
+    /// Implementiert als Singleton Klasse
+    /// </summary>
     internal class Menu
     {
+        /// <summary>
+        /// Singleton Menu Instance Objekt
+        /// </summary>
         private static Menu instance;
+        /// <summary>
+        /// Array mit Menüinhalten
+        /// </summary>
         private readonly MenuItems[] menuItems;
+        /// <summary>
+        /// Konstruktor des Menu
+        /// </summary>
         private Menu()
         {
             menuItems = new MenuItems[4];
@@ -15,6 +28,10 @@ namespace BNetzA_SysmonTestingAutomation.View
             menuItems[2] = new MenuItems(2, "Email");
             menuItems[3] = new MenuItems(3, "RemoteDesktop");
         }
+        /// <summary>
+        /// getInstance Methode als Getter für Singleton Instanz
+        /// </summary>
+        /// <returns>Menu</returns>
         public static Menu getInstance()
         {
             if (instance == null)
@@ -23,7 +40,9 @@ namespace BNetzA_SysmonTestingAutomation.View
             }
             return instance;
         }
-
+        /// <summary>
+        /// Run-Methode zum Ausführen des Menüs
+        /// </summary>
         public void Run()
         {
             try
@@ -68,7 +87,10 @@ namespace BNetzA_SysmonTestingAutomation.View
                 Console.WriteLine(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// Print Menu Methode zum Ausgeben des Menüinhalts und Abfrage der Auswahl
+        /// </summary>
+        /// <returns>int</returns>
         public int PrintMenu()
         {
             Console.Clear();
@@ -91,6 +113,9 @@ namespace BNetzA_SysmonTestingAutomation.View
 
 
     }
+    /// <summary>
+    /// Struct zur Datenhaltung von Menüinhalten
+    /// </summary>
     internal struct MenuItems
     {
         public MenuItems(int id, string description)
