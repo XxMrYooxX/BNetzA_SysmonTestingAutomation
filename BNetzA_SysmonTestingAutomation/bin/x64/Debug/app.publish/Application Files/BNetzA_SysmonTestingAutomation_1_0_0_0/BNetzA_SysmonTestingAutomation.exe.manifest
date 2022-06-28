@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="BNetzA_SysmonTestingAutomation.exe" version="1.0.0.0" publicKeyToken="d385dbfc211b54f3" language="neutral" processorArchitecture="amd64" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="BNetzA_SysmonTestingAutomation" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+    <commandLine file="BNetzA_SysmonTestingAutomation.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BNetzA_SysmonTestingAutomation.exe" size="15800">
+      <assemblyIdentity name="BNetzA_SysmonTestingAutomation" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iMCtf6diZ/AtV6G5+9WZ9DEynzsl+koh8DSOh2zlbeM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlaUI.Core.dll" size="254976">
+      <assemblyIdentity name="FlaUI.Core" version="3.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jcGkpeiRe3oIYk5KhoyoriKtTknBD8xoJKbe67YOCQk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlaUI.UIA2.dll" size="75776">
+      <assemblyIdentity name="FlaUI.UIA2" version="3.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Kz5DJp/DNFUNw5DOsvge5rsFHZeqlV/RR5TlXrDVv4I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlaUI.UIA3.dll" size="105472">
+      <assemblyIdentity name="FlaUI.UIA3" version="3.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>YQYGsgIWwRlW+VfX2AXcYHRnc+9nl8Kynmkcz34i8Bw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.UIAutomationClient.dll" size="151040">
+      <assemblyIdentity name="Interop.UIAutomationClient" version="10.0.18362.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LF5JZ4TP8BOhnq1vYBq/4Rup3fb/VMPgroiMV3vsjQw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="BNetzA_SysmonTestingAutomation.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+CM46OnHRrXZXNLMx7+U3V3iubiYL//d8hGOR13lDhU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MARCELPC\marce" issuerKeyHash="0487af6501146e78a7874ede0fb0dfd662b36fce" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>XOGfoL0htjk6oZ1PyLFhJ5FAZewvxt8ZDH6T+rnLSBg=</DigestValue></Reference></SignedInfo><SignatureValue>S3qrBWIssxJFHyU607CznokCBnpHlNw42Xz+X1tjV8OKWYmocpMdMduGnHGJTzgkj3qiTOAFVj+auL51FK+FWctnOZLKt4J6dt//07sn+0zDlJxvsidmhe1szZEVqpLC6V4woXNOOoKW8yB0T3cqthudCsClELOXUAoMWtBQgNQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zzX5NZL0cbCpKAzpem3Lo0830OLg83/9KPa0Lh1/zWBDMvz/ag/0YSU2yfYS5Eh7RbxMPpWXxf8WZYy7JxHjOpgQtc7vGt+pZ4gTyzt8XYoe5OdPTfBMS2qatjpJeDuVVDpAdc8KvBaKPHVwWx7hTReBJIVwW1Dl92yFhTruvWE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="1848cbb9fa937e0c19dfc62fec6540912761b1c84f9da13a39b621bda09fe15c" Description="" Url=""><as:assemblyIdentity name="BNetzA_SysmonTestingAutomation.exe" version="1.0.0.0" publicKeyToken="d385dbfc211b54f3" language="neutral" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MARCELPC\marce</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>63N3hKeqMR9G1+G8nPrglptwgCdFqOOIfCFSQteC5R8=</DigestValue></Reference></SignedInfo><SignatureValue>bKwYR8sURtXlIv1BOn1jLYJEldXOhTTnvK7k/8WeAqSAA1a1FxLVIhgL3BzLx1dGx/LHgAUojdOowtmk8ZPJ/40ZRH7xeiy3qSUqnmadldLDaMeavesfTADQEOCyJAUPL0BGEk0d5Tkp6W88c+HRT9N+vOxsIwzJUkKXxSPFtqQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zzX5NZL0cbCpKAzpem3Lo0830OLg83/9KPa0Lh1/zWBDMvz/ag/0YSU2yfYS5Eh7RbxMPpWXxf8WZYy7JxHjOpgQtc7vGt+pZ4gTyzt8XYoe5OdPTfBMS2qatjpJeDuVVDpAdc8KvBaKPHVwWx7hTReBJIVwW1Dl92yFhTruvWE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQGhh1YNY/HJZHVha2KvXU2DANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwATQBBAFIAQwBFAEwAUABDAFwAbQBhAHIAYwBlMB4XDTIyMDYyODE4MTkxOFoXDTIzMDYyOTAwMTkxOFowJzElMCMGA1UEAx4cAE0AQQBSAEMARQBMAFAAQwBcAG0AYQByAGMAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzzX5NZL0cbCpKAzpem3Lo0830OLg83/9KPa0Lh1/zWBDMvz/ag/0YSU2yfYS5Eh7RbxMPpWXxf8WZYy7JxHjOpgQtc7vGt+pZ4gTyzt8XYoe5OdPTfBMS2qatjpJeDuVVDpAdc8KvBaKPHVwWx7hTReBJIVwW1Dl92yFhTruvWECAwEAATANBgkqhkiG9w0BAQsFAAOBgQBHUusNu9xEMwjhUlvtgCr6y3AN2gBmZ1Kcw4SZKaD4J+5iyDllblb/NI1R3GYLrEqF2POV4Fj8YoI8urKZJ7mDuPXhKxa7pkZHjqmepoI1E7G1eQuFPchTlBCtKaejp6lJMg3DSN/uk8TgjFIj6T8kcIK0HFuBd+EDv50P0jCUAA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

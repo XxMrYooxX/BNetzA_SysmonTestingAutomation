@@ -38,7 +38,7 @@ namespace BNetzA_SysmonTestingAutomation.UseCases
                     cf.ByAutomationId("5012").And(cf.ByName("Computer:"))));
 
             newDocumentButton.Click();
-            FlaUI.Core.Input.Keyboard.Type("STUDITNB005");
+            FlaUI.Core.Input.Keyboard.Type("BA-SysmonEndpoint.sysmon.intern.adns");
             FlaUI.Core.Input.Keyboard.Type(FlaUI.Core.WindowsAPI.VirtualKeyShort.ENTER);
 
             Thread.Sleep(300000);

@@ -14,3 +14,7 @@ C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingA
 C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\x64\Debug\BNetzA_SysmonTestingAutomation.csproj.CopyComplete
 C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\x64\Debug\BNetzA_SysmonTestingAutomation.exe
 C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\x64\Debug\BNetzA_SysmonTestingAutomation.pdb
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\x64\Debug\BNetzA_SysmonTestingAutomation.exe.manifest
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\bin\x64\Debug\BNetzA_SysmonTestingAutomation.application
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\x64\Debug\BNetzA_SysmonTestingAutomation.exe.manifest
+C:\Users\marce\source\repos\BNetzA_SysmonTestingAutomation\BNetzA_SysmonTestingAutomation\obj\x64\Debug\BNetzA_SysmonTestingAutomation.application
